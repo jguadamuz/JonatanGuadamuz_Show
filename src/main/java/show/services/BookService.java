@@ -52,6 +52,16 @@ public class BookService {
         return book;
     }
 
+    public Book updateBook(Long id, Book b) {
+        Book book = findBook(id);
+        book.setTitle(b.getTitle());
+        book.setDescription(b.getDescription());
+        book.setLanguage(b.getLanguage());
+        book.setNumberOfPages(b.getNumberOfPages());
+        bookRepository.save(book);
+        return book;
+    }
+
 	public void deleteBook(Long id) {
         bookRepository.deleteById(id);
 	}
